@@ -1,0 +1,85 @@
+<div class="container mt-3" style="width:520px;">
+    <div class="card bg-light" >
+      <article class="card-body mx-auto" style="width: 100%;"><!-- Aqui se modifica para el ancho de los componentes -->
+      <h4 class="card-title text-center text-title">{{title}}</h4> 
+
+                        
+    <div class="row">
+        <div class="col text-center">
+            <div class="mt-5 mb-3">     
+                <img 
+                id="img" name="img" 
+                width="200" 
+                height="200" 
+                style="margin-bottom: 10px;"
+                [src]="img"> <br/>
+                <p class="mt-3 text-center text-label" style="font-weight:bold;">Portada</p>                                                                                                            
+            </div>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">ASIN o ISBN:</label>   <br>  
+        <label class="form-label text-label">{{libro.asin_isbn}}</label>                                     
+    </div>     
+
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Título:</label>    <br>
+        <label class="form-label text-label">{{libro.titulo}}</label>                                    
+    </div>      
+
+    
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Fecha de Lanzamiento:</label>  <br>  
+        <label class="form-label text-label">{{libro.fechaDeLanzamiento}}</label>                                                     
+    </div>
+       
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <div class="autor" style="display: inline-block; width:100%;">    
+            <ng-template ngFor let-author [ngForOf]="book.authors" let-index="index" let-isLast="last" style="width:80%;" >    
+                <!-- <label class="form-label" style="font-weight:bold;">Autor[{{index}}]</label> <br>  -->
+                <p *ngIf="book.authors.length == 1" class="form-label mt-0 text-label" style="font-weight:bold;">Autor:</p> <p *ngIf="book.authors.length > 1" class="form-label mt-0 text-label" style="font-weight:bold;">Autor[{{index}}]:</p>
+                <label class="form-label mb-3 text-label">{{author.name}}</label><br>                                                                                                              
+            </ng-template>             
+        </div>       
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Categoría:</label> <br>
+        <label class="form-label text-label">{{categoria}}</label>                                                                   
+    </div>
+       
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Editorial:</label>  <br>    
+        <label class="form-label text-label">{{editorial}}</label>                                          
+    </div>       
+   
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Idioma:</label>  <br> 
+        <label class="form-label text-label">{{libro.idioma}}</label>                                           
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Páginas:</label> <br>     
+        <label class="form-label text-label">{{libro.paginas}}</label>                                              
+    </div>
+
+   
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Descripción:</label> <br>  
+        <label class="form-label text-justify text-label">{{libro.descripcion}}</label>                                                
+    </div>                                                                
+
+    <div class="container-button h-100 mb-5" > 
+        <div class="row w-100 align-items-center">
+            <div class="col text-center">                                    
+                <!-- <button class="btn btn-primary display: flex; justify-content: center;" [disabled]= "!libroForm.form.valid">Guardar</button>                  -->
+                <button class="btn btn-primary btn-length2 text-label display: flex; justify-content: center;" (click)="regresar()">Regresar</button>                 
+
+            </div>
+        </div>
+    </div> 
+
+      </article>
+</div>    
+</div>

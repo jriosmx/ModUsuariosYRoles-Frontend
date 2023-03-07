@@ -1,0 +1,57 @@
+<div class="container mt-3" style="width:520px;">
+    <div class="card bg-light" >
+      <article class="card-body mx-auto" style="width: 100%;"><!-- Aqui se modifica para el ancho de los componentes -->
+      <h4 class="card-title text-center text-title">{{title}}</h4> 
+
+                        
+   
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Id:</label>   <br>  
+        <label class="form-label text-label">{{usuario.id}}</label>                                     
+    </div>     
+
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Nombre:</label>    <br>
+        <label class="form-label text-label">{{usuario.name}}</label>                                    
+    </div>      
+
+    
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Apellidos:</label>  <br>  
+        <label class="form-label text-label">{{usuario.lastname}}</label>                                                     
+    </div> 
+
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Email:</label>  <br> 
+        <label class="form-label text-label">{{usuario.email}}</label>                                           
+    </div>
+   
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Sobrenombre:</label>  <br> 
+        <label class="form-label text-label">{{usuario.username}}</label>                                           
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Rol:</label> <br>     
+        <label class="form-label text-label">{{usuario.role}}</label>                                              
+    </div>
+
+   
+    <!-- <div class="mb-3">
+        <label class="form-label text-label" style="font-weight:bold;">Contraseña:</label> <br>  
+        <label class="form-label text-justify text-label">{{usuario.password}}</label>                                                
+    </div>                                                                 -->
+
+    <div class="container-button h-100 mb-5" > 
+        <div class="row w-100 align-items-center">
+            <div class="col text-center">                                    
+                <!-- <button class="btn btn-primary display: flex; justify-content: center;" [disabled]= "!libroForm.form.valid">Guardar</button>                  -->
+                <button class="btn btn-primary btn-length2 text-label display: flex; justify-content: center;" (click)="regresar()">Regresar</button>                 
+
+            </div>
+        </div>
+    </div> 
+
+      </article>
+</div>    
+</div>

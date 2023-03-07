@@ -1,0 +1,80 @@
+<div class="container mt-3"  style="margin:auto;" >
+      
+    <div class="card bg-light" >
+    <article class="card-body mx-auto" style="max-width: 700px;">
+        <h4 class="card-title text-center text-title">{{title}}</h4>  
+        
+        <form name="updateForm" class="mt-4" #updateForm="ngForm" autocomplete="off">                
+            
+            <div class="form-group input-group" >
+                
+                <div class="input-group-prepend">
+                    <span class="input-group-text" > <i class="fa-solid fa-magnifying-glass"></i> </span>
+                </div>
+    
+                <input 
+                name="name" 
+                class="form-control form-input" 
+                placeholder="Buscar por..." 
+                type="text" 
+                required
+                role="presentation"                                                                                   
+                autocomplete="off"
+                minlength="1"
+                maxlength="60"                      
+                #query = "ngModel"
+                [(ngModel)] = "cad" 
+                [class.is-valid]="query.valid"
+                style="width: 300px;" 
+                [ngClass]="{'is-invalid': query.invalid && (query.dirty || query.touched), 
+                                'is-valid': query.valid, '' : query.untouched}"                     
+                [ngStyle]="{'background-color': query.valid ? '#E8F0FE' : '#FFFFFF'}">  
+    
+                <button type="button" class="btn btn-outline-primary" style="margin-left: 3px;" (click)="onSubmit()">Buscar</button>                   
+                
+                <div class="alert alert-danger" style="width: 100%;" *ngIf= "query.invalid && (query.dirty || query.touched)">
+                    <div *ngIf = "query.errors?.['required']">
+                    Digite el `nombre o autor del libro` por favor!!!
+                    </div>
+                    <div *ngIf = "query.errors?.['minlength']">
+                    El `nombre o autor del libro` debe contener como minimo 1 caracter
+                    </div>
+                    <div *ngIf = "query.errors?.['maxlength']">
+                    El `nombre o autor del libro` debe de contener como maximo 60 caracteres
+                    </div>
+                </div>                          
+                
+            </div> <!-- form-group// -->         
+            
+        </form>   
+
+    </article>
+
+    <div *ngIf="loadData">
+            <h4 class="card-title text-center text-title mt-4">Libros</h4> 
+                <div class="container">
+                    <table 
+                    datatable
+                    #datatable
+                    id = "datatables"
+                    [dtOptions]="dtOptions"  
+                    class="row-border hover table-striped table-bordered"
+                    *ngIf="loadData">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Id</th>
+                                <th class="text-center">Título</th> 
+                                <th class="text-center">Autor</th>            
+                                <th colspan="3" scope="col" class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div> <!-- card.// -->
+    
+    </div> <!--container end.//-->                                
+
+<div id="spaceJunk" style="height: 250px;"></div>

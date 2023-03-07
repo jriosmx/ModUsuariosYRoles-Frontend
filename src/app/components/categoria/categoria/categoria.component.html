@@ -1,0 +1,58 @@
+<div class="container mt-3" style="width:520px;">
+    <div class="card bg-light" >
+      <article class="card-body mx-auto" style="width: 100%;"><!-- Aqui se modifica para el ancho de los componentes -->
+      <h4 class="card-title text-center text-title">{{title}}</h4>  
+    
+            <form (ngSubmit)= "onSubmit()" #categoriaForm = "ngForm">             
+       
+               
+                                <label for="categoria" class="control-label required form-label">Categoría:</label>
+                                <div class="form-group input-group" style="width: 100%;"> <!-- form-group// -->
+                    
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" > <i class="fa-solid fa-input-text"></i> </span>
+                                    </div>
+                                    <input type="text" class="form-control form-input" 
+                                    [(ngModel)] = "categoria.categoria" 
+                                    id="categoria" 
+                                    name="categoria"
+                                    required
+                                    autocomplete="off"
+                                    minlength="4"
+                                    maxlength="30"
+                                    placeholder="Nombre de la categoría"
+                                    #nombre = "ngModel"
+                                    style="width: 300px;" 
+                                    [class.is-valid]="nombre.valid"
+                                    [ngClass]="{'is-invalid': nombre.invalid && (nombre.dirty || nombre.touched), 
+                                                'is-valid': nombre.valid, '' : nombre.untouched}"                     
+                                    [ngStyle]="{'background-color': nombre.valid ? '#E8F0FE' : '#FFFFFF'}">  
+
+                                    <div class="alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
+                                        <div *ngIf = "nombre.errors?.['required']">
+                                        Digite el `nombre` de la categoría, por favor!!!
+                                        </div>
+                                        <div *ngIf = "nombre.errors?.['minlength']">
+                                        El `nombre` tiene que contener como minimo 4 caracteres
+                                        </div>
+                                        <div *ngIf = "nombre.errors?.['maxlength']">
+                                        El `nombre` tiene que tener como maximo 10 caracteres
+                                        </div>
+                                    </div>               
+                                </div> 
+            </form>
+                
+            <div class="form-group input-group">
+                <div class="col text-center">        
+                        <button name="Actualizar" [disabled]= "!categoriaForm.form.valid" class="btn btn-primary btn-length3 mt-3 display: flex; justify-content: center;" (click)="onSubmit()" >Registrar</button>            
+                </div>
+                <div class="col text-center">        
+                    <button name="Cancelar"  class="btn btn-primary btn-length3 mt-3 display: flex; justify-content: center;" (click)="check()" >Cancelar</button>            
+                </div>
+            </div>              
+            
+      </article>
+    </div>   
+</div>
+
+<div id="spaceJunk" style="height: 1200px;"></div>

@@ -1,0 +1,404 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+body {
+	background-color: var(--color-background) !important;
+}
+
+.box-form {
+	display: none;
+}
+
+.box-card {	
+	box-shadow: 0px 3px 6px #00000029 !important;
+	background: var(--color-white);
+	border-radius: 9px;
+	border-radius: 10px;
+	padding: 0% 7% 5% 7%;
+}
+
+.card-header {
+	background-color: var(--color-white) !important;
+}
+
+.card {
+	border-radius: 9px;
+	box-shadow: 0px 3px 6px #00000029 !important;
+	background: white;
+	font-family: var(--title-content);
+	font-weight: SemiBold;
+	font-size: 15px;
+	border: none !important;
+	padding: 1rem 1rem;
+	align-items: center;
+}
+
+.card-collapse {
+	width: 800px;
+	border-radius: 9px;
+	box-shadow: 0px 3px 6px #00000029 !important;
+	/* background: white; */
+	background: #F8F9FA;
+	font-family: var(--title-content);
+	font-weight: SemiBold;
+	font-size: 15px;
+	margin-right: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.btn-length {
+	position: relative;
+	font-size: 14px !important;
+	padding: 14px 15px !important;
+	/* display: block; */
+	width: 20%;
+	height: 50px;
+	background: var(--color-azul-1);
+	color: var(--color-white);
+}
+
+.btn-length2 {
+	position: relative;
+	font-size: 14px !important;
+	padding: 14px 15px !important;
+	/* display: block; */
+	width: 40%;
+	height: 50px;
+	background: var(--color-azul-1);
+	color: var(--color-white);
+}
+
+.btn-length3 {
+	position: relative;
+	font-size: 14px !important;
+	padding: 14px 15px !important;
+	/* display: block; */
+	width: 70%;
+	height: 50px;
+	background: var(--color-azul-1);
+	color: var(--color-white);
+}
+
+.form-input {
+	display: block;
+	width: 100%;
+	height: 50px;
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input.text-input,
+.text-input:focus {
+	background: none !important;
+	border: none !important;
+	box-shadow: none !important;
+	overflow: none !important;
+	outline: none !important;
+	color: var(--color-verde-1);
+}
+
+.form-textarea {
+	display: block;
+	width: 100%;
+	height: 150px;
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-input:focus {
+	outline-color: var(--color-verde-1);
+}
+
+.form-textarea:focus {
+    outline-color: var(--color-verde-1);
+}
+
+/*navbar*/
+/* .header{
+	top: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+} */
+
+header .navbar-primary{
+	background: var(--color-azul-5)!important;
+	padding: 1% 5.5%!important;
+	font-size: 16px !important;
+	height: auto!important;
+}
+
+header .navbar-primary .nav-item a{
+	padding: 10px 15px;
+	text-decoration: none;
+	color: black;
+	font-size: 16px !important;
+}
+header .sub-navbar .nav-item a{
+	padding: 10px 15px;
+	text-decoration: none;
+	color: #0c231e!important;
+	font-size: 16px !important;
+	text-decoration: none;
+}
+
+header .navbar .navbar-toggle{
+	border: none;
+	position: relative;
+	float: right;
+	margin-right: 15px;
+	padding: 9px 10px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	background-color: transparent;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+
+header .navbar .navbar-toggle .icon-bar {
+	background-color: #fff;
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: 1px;
+}
+header .navbar-primary .nav-item a:hover, header .sub-navbar .nav-item a:hover{
+	color: var(--color-secundario)!important;
+}
+
+header .navbar-primary > .collapse.show{
+	border-top: 1px solid #d8d8d8;
+
+}
+
+header .navbar-primary .navbar-right{
+	float: right !important;
+	margin-right: -15px;
+}
+.navbar-nav>li>form>button{
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
+header .navbar-dark .navbar-brand{
+	padding: 0px;
+}
+
+header .sub-navbar{
+	background: #DBECE3;
+	padding: 1% 5.5% 1% 6.5%!important;
+	font-size: 16px !important;
+	height: auto!important;
+}
+header .sub-navbar .navbar-collapse{
+	background-color: #DBECE3 ;
+}
+header .sub-navbar img{
+	width: 120px;
+}
+
+/* .text-title{
+	font-size: 28px;
+	margin-bottom: 15px;
+	font-family: Montserrat-SemiBold!important;
+} */
+
+.text-title {
+	font-family: "Montserrat-Bold";
+	font-weight: normal;
+	font-style: normal;
+	color: black;
+	font-size: 28px;
+}
+
+.text-label {
+	font-family: "Montserrat-Bold";
+	font-weight: normal;
+	font-style: normal;
+	color: black;
+}
+/* 
+.form-select {
+	width: 100%;
+}
+
+.form-select select {
+	width: 100%;
+	background: #fff url('../img/icon/time.svg.html') no-repeat;
+	background-size: 25px;
+	background-position: right 10px center;
+	padding-left: 15px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	display: block;
+	width: 100%;
+	height: 150px;;
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-select select:focus {
+	outline-color: var(--color-verde-1);
+}
+
+option {
+	background: var(--color-white);
+	font-family: "Montserrat-Regular";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 18px;
+	color: var(--color-verde-1);
+} */
+
+
+/*colores*/
+:root {
+
+/*principal beca básica*/
+--color-verde-1:  #235B4E; 	/*rgb(35, 91, 78)*/
+--color-verde-2: #00A57F; 	/*rgb(0, 165, 127)*/
+--color-verde-3: #86C4A2; 	/*rgb(134, 196, 162)*/
+--color-verde-4: #DBECE3; 	/*rgb(219, 236, 227)*/
+--color-verde-5: #10312B;  	/*rgb(16, 49, 43)*/
+
+/*Secundarios/Beca Educación Superior*/
+--color-dorado-1: #BC955C;  /*rgb(188, 149, 92)*/
+--color-dorado-2: #837141;  /*rgb(142, 113, 65)*/
+--color-dorado-3: #DDC9A3;  /*rgb(221, 201, 163)*/
+--color-dorado-4: #EBDFC8; 	/*rgb(235, 223, 200)*/
+--color-dorado-5: #645231; 	/*rgb(100, 82, 49)*/
+
+/*Secundarios/Beca Elisa Acuña*/
+--color-rojo-1: #9F2241;	/*rgb(159, 34, 65)*/
+--color-rojo-2: #CC2B53;	/*rgb(204, 43, 83)*/
+--color-rojo-3: #E689A0;	/*rgb(0, 40, 30, 10)*/
+--color-rojo-4: #F8DEE4;	/*rgb(248, 222, 228)*/
+--color-rojo-5: #691C32;	/*rgb(105, 28, 50)*/
+
+
+/*Secundarios/Beca Educación Media Superior*/
+
+--color-morado-1: #643585;	/*rgb(100, 53, 133)*/
+--color-morado-2: #9D54D1;	/*rgb(157, 84, 209)*/
+--color-morado-3: #866B99;	/*rgb(134, 107, 153)*/
+--color-morado-4: #B792D1;	/*rgb(183, 146, 209)*/
+--color-morado-5: #3D2152;	/*rgb(61, 33, 82)*/
+
+/* Secundarios*/
+--color-azul-1: #006F7F;	/*rgb(0, 111, 127)*/
+--color-azul-2: #00B1CC;	/*rgb(0, 177, 204)*/
+--color-azul-3: #2D8795;	/*rgb(45, 135, 149)*/
+--color-azul-4: #3DB9CC;	/*rgb(61, 185, 204)*/
+--color-azul-5: #00424D;	/*rgb(0,66,77)*/
+
+/*Estados del sistema*/
+
+--color-info: #2F80ED;	/*rgb(47, 128, 237)*/
+--color-exitoso: #27AE60;	/*rgb(39, 174, 96)*/
+--color-advertencia: #E2B93B;	/*rgb(226, 185, 59)*/
+--color-error: #EB5757;	/*rgb(235, 87, 87)*/
+
+
+/*grises*/
+--color-gris-1: #98989A;	/*rgb(152, 152, 154)*/
+--color-gris-2: #6F7271;	/*rgb(111, 114, 113)*/
+--color-gris-3: #C2C2C2;	/*rgb(194, 194, 194)*/
+--color-gris-4: #F0F0F0;	/*rgb(240, 240, 240)*/
+--color-gris-5: #2C2E2D;	/*rgb(44, 46, 45)*/
+
+/*basicos*/
+--color-black: #000000;		/*rgb(0, 0, 0)*/
+--color-white: #FFFFFF;		/*rgb(255, 255, 255)*/
+--color-background: #F7FCF9;	/*rgb(247, 252, 249)*/
+
+
+
+--color-primario: var(--color-verde-1);
+--color-blue:var(--color-verde-2);
+--color-red:var(--color-rojo-1);
+--color-pink:var(--color-rojo-2);
+--color-lightbrown:var(--color-dorado-1);
+--color-brown:var(--color-dorado-2);
+--color-greenlight:var(--color-verde-4);
+
+--color-white: #fbfbfb; 
+--color-secundario: #DDC9A4;
+
+
+}
+
+/*tipografías*/
+@font-face {
+font-family: "Montserrat-SemiBold";
+font-weight: normal;
+font-style: normal;
+src: local('Montserrat-SemiBold'), url('../Montserrat/static/Montserrat-SemiBold.ttf') format("truetype");
+}
+
+@font-face {
+font-family: "Montserrat-Medium";
+font-weight: normal;
+font-style: normal;
+src: local('Montserrat-Medium'), url('../Montserrat/static/Montserrat-Medium.ttf') format("truetype");
+}
+@font-face {
+font-family: "Montserrat-Regular";
+font-weight: normal;
+font-style: normal;
+src: local('Montserrat-Regular'), url('../Montserrat/static/Montserrat-Regular.ttf') format("truetype");
+}
+
+@font-face {
+font-family: "Montserrat-Bold";
+font-weight: normal;
+font-style: normal;
+src: local('Montserrat-Bold'), href("{{ asset('../Montserrat/static/Montserrat-Bold.ttf') }}") format("truetype");
+}
+
+/*párrafos*/
+h1{
+font-size: 56px;
+line-height: 61.6px;
+}
+h2{
+font-size: 48px;
+line-height: 52.80px;
+}
+h3{
+font-size: 40px;
+line-height: 44px;
+}
+h4{
+font-size: 32px;
+line-height: 35.2px;
+}
+h5{
+font-size: 24px;
+line-height: 26.4px;
+}
+h6{
+font-size: 20px;
+line-height: 22px;
+}

@@ -1,0 +1,111 @@
+
+          <div class="container mt-3" style="width:450px;">
+  
+            <div class="card bg-light" >
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-1 text-center text-title">{{title}}</h4>                
+                <form class="mt-4" name="form" #loginForm="ngForm" autocomplete="off">                 
+
+                <label for="Sobrenombre" class="form-label text-label mt-2" style="font-weight:bold;">Sobrenombre:</label>
+                <div class="form-group input-group" >
+                    <div class="input-group-prepend" >
+                        <span class="input-group-text" > <i class="fa fa-user-circle icons-login"></i> </span>
+                     </div>
+                   
+                     <input 
+                            name="username" 
+                            class="form-control form-input" 
+                            placeholder="Sobrenombre" 
+                            type="text" 
+                            required
+                            role="presentation"                                                                                   
+                            autocomplete="off"
+                            minlength="3"
+                            maxlength="60"
+                            #sobreNombre = "ngModel"
+                            [(ngModel)] = "form.username"                           
+                            style="width: 300px;"                      
+                            [ngStyle]="{'background-color': sobreNombre.valid ? '#E8F0FE' : '#FFFFFF'}">                           
+                   
+                            <div class="alert alert-danger" style="width: 100%;" *ngIf= "sobreNombre.invalid && (sobreNombre.dirty || sobreNombre.touched)">
+                              <div *ngIf = "sobreNombre.errors?.['required']">
+                                Digite el `sobrenombre` por favor!!!
+                              </div>
+                              <div *ngIf = "sobreNombre.errors?.['minlength']">
+                                El `sobrenombre` debe contener como minimo 3 caracteres
+                              </div>
+                              <div *ngIf = "sobreNombre.errors?.['maxlength']">
+                                El `sobrenombre` debe de contener como maximo 30 caracteres
+                              </div>                              
+                            </div>
+
+                </div> <!-- form-group// -->     
+
+                <label for="passwd" class="form-label text-label mt-2" style="font-weight:bold;">Contraseña:</label>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock icons-login"></i> </span>
+                    </div>
+                    <input 
+                      id="passwd"
+                      name="passwd"
+                      class="form-control form-input" 
+                      placeholder="Contraseña" 
+                      type="password"
+                      role="presentation"                                                                                   
+                      autocomplete="off"   
+                      minlength="8"
+                      maxlength="30"
+                      required 
+                      password                                     
+                      #contrasena = "ngModel"
+                      [(ngModel)] = "form.password" 
+                      style="width: 300px;"                      
+                      [ngStyle]="{'background-color': contrasena.valid ? '#E8F0FE' : '#FFFFFF'}">
+
+                    <div class="alert alert-danger" style="width: 100%;" *ngIf= "contrasena.invalid && (contrasena.dirty || contrasena.touched)">
+                      <div *ngIf = "contrasena.errors?.['required']">
+                        Digite la `contraseña` por favor!!!
+                      </div>
+                      <div *ngIf = "contrasena.errors?.['minlength']">
+                        -La `contraseña` debe contener como minimo 8 caracteres
+                      </div>
+                      <div *ngIf = "contrasena.errors?.['maxlength']">
+                        -La `contraseña` debe de contener como maximo 30 caracteres
+                      </div>                      
+                    </div>                    
+                  </div> <!-- form-group// -->
+
+                  <div class="form-group">
+                    <div
+                      class="alert alert-danger"
+                      role="alert"
+                      *ngIf="loginForm.submitted && isLoginFailed"
+                    >
+                      Login failed: {{ errorMessage }}
+                    </div>
+                  </div>
+                                                                            
+            </form>
+
+            <!-- <div *ngIf = "correo.errors?.['pattern']">
+              Email invalido!!!
+            </div> -->
+
+            <div class="form-group input-group">
+              <div class="col text-center">        
+                      <button name="Actualizar" [disabled]= "!loginForm.form.valid" class="btn btn-primary btn-length3 mt-3 display: flex; justify-content: center;" (click)="onSubmit()" >Enviar</button>            
+              </div>
+              <div class="col text-center">        
+                  <button name="Cancelar"  class="btn btn-primary btn-length3 mt-3 display: flex; justify-content: center;" (click)="cancelar()" >Cancelar</button>            
+              </div>
+            </div>
+
+            </article>             
+
+            </div> <!-- card.// -->
+            
+            </div> 
+            <!--container end.//-->
+
+<div id="spaceJunk" style="height: 250px;"></div>

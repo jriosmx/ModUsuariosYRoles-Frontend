@@ -1,0 +1,337 @@
+
+<div class="container mt-3" style="width:450px;">
+  
+    <div class="card bg-light" >
+    <article class="card-body mx-auto" style="max-width: 400px;">
+        <h4 class="card-title text-center text-title">{{title}}</h4>                
+        <form name="updateForm" class="mt-4" #updateForm="ngForm" autocomplete="off">                
+
+          <label for="name" class="control-label required form-label text-label" style="font-weight:bold;">Nombre</label>  
+          <div class="form-group input-group" >
+            
+            <div class="input-group-prepend">
+                <span class="input-group-text" > <i class="fa fa-user icons-login"></i> </span>
+             </div>
+            <input 
+              name="name" 
+              class="form-control form-input" 
+              placeholder="Nombre" 
+              type="text" 
+              required
+              role="presentation"                                                                                   
+              autocomplete="off"
+              minlength="3"
+              maxlength="60"                      
+              #nombre = "ngModel"
+              [(ngModel)] = "usuario.name" 
+              [class.is-valid]="nombre.valid"
+              style="width: 300px;" 
+              [ngClass]="{'is-invalid': nombre.invalid && (nombre.dirty || nombre.touched), 
+                            'is-valid': nombre.valid, '' : nombre.untouched}"                     
+              [ngStyle]="{'background-color': nombre.valid ? '#E8F0FE' : '#FFFFFF'}">                     
+
+              <div class="alert alert-danger" style="width: 100%;" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
+                <div *ngIf = "nombre.errors?.['required']">
+                  Digite el `nombre` del usuario por favor!!!
+                </div>
+                <div *ngIf = "nombre.errors?.['minlength']">
+                  El `nombre` debe contener como minimo 3 caracteres
+                </div>
+                <div *ngIf = "nombre.errors?.['maxlength']">
+                  El `nombre` debe de contener como maximo 60 caracteres
+                </div>
+              </div>
+          </div> <!-- form-group// -->
+
+        <label for="lastname" class="control-label required form-label text-label mt-2" style="font-weight:bold;">Apellidos</label>  
+        <div class="form-group input-group" >
+          <div class="input-group-prepend">
+              <span class="input-group-text" > <i class="fa fa-user icons-login"></i> </span>
+           </div>
+          <input 
+            name="lastname" 
+            class="form-control form-input" 
+            placeholder="Apellidos" 
+            type="text" 
+            required
+            role="presentation"                                                                                   
+            autocomplete="off"
+            minlength="3"
+            maxlength="60"
+            #apellidos = "ngModel"
+            [(ngModel)] = "usuario.lastname" 
+            [class.is-valid]="apellidos.valid"
+            [ngClass]="{'is-invalid': apellidos.invalid && (apellidos.dirty || apellidos.touched), 
+                            'is-valid': apellidos.valid, '' : apellidos.untouched}"
+            style="width: 300px;"                      
+            [ngStyle]="{'background-color': apellidos.valid ? '#E8F0FE' : '#FFFFFF'}">
+
+          <div class="alert alert-danger" style="width: 100%;" *ngIf= "apellidos.invalid && (apellidos.dirty || apellidos.touched)">
+            <div *ngIf = "apellidos.errors?.['required']">
+              Digite los `apellidos` del usuario por favor!!!
+            </div>
+            <div *ngIf = "apellidos.errors?.['minlength']">
+              Los `apellidos` deben contener como minimo 3 caracteres
+            </div>
+            <div *ngIf = "apellidos.errors?.['maxlength']">
+              Los `apellidos` deben de contener como maximo 60 caracteres
+            </div>
+          </div>
+
+        </div> <!-- form-group// -->
+
+      <label for="username" class=" control-label required form-label text-label mt-2" style="font-weight:bold;">Sobrenombre</label>  
+      <div class="form-group input-group" >
+        <div class="input-group-prepend">
+            <span class="input-group-text" > <i class="fa fa-user-circle icons-login"></i> </span>
+         </div>
+        <input 
+          name="username" 
+          class="form-control form-input" 
+          placeholder="Sobrenombre" 
+          type="text" 
+          required
+          role="presentation"                                                                                   
+          autocomplete="off"
+          minlength="3"
+          maxlength="60"
+          #sobreNombre = "ngModel"
+          [(ngModel)] = "usuario.username"
+          (input)="onTextChangeSobreNombre($event)"   
+          [class.is-valid]="sobreNombre.valid"
+          [ngClass]="{'is-invalid': sobreNombre.invalid && (sobreNombre.dirty || sobreNombre.touched), 
+                            'is-valid': sobreNombre.valid, '' : sobreNombre.untouched}"
+          style="width: 300px;"                      
+          [ngStyle]="{'background-color': sobreNombre.valid ? '#E8F0FE' : '#FFFFFF'}">
+
+        <div class="alert alert-danger" style="width: 100%;" *ngIf= "sobreNombre.invalid && (sobreNombre.dirty || sobreNombre.touched)">
+          <div *ngIf = "sobreNombre.errors?.['required']">
+            Digite el `sobrenombre` del usuario por favor!!!
+          </div>
+          <div *ngIf = "sobreNombre.errors?.['minlength']">
+            El `sobrenombre` debe contener como minimo 3 caracteres
+          </div>
+          <div *ngIf = "sobreNombre.errors?.['maxlength']">
+            El `sobrenombre` debe de contener como maximo 60 caracteres
+          </div>
+          <div *ngIf = "sobreNombre.errors?.['isTaken']">
+            El `sobrenombre` esta tomado, escribe otro!!!
+          </div>
+        </div>
+      </div> <!-- form-group// -->      
+
+        <label for="email" class="control-label required form-label text-label mt-2" style="font-weight:bold;">Email</label>
+        <div class="form-group input-group" >
+            <div class="input-group-prepend" >
+                <span class="input-group-text" > <i class="fa fa-envelope icons-login"></i> </span>
+             </div>
+           
+              <input  name="email" 
+                    class="form-control form-input" 
+                    placeholder="Email" 
+                    type="email" 
+                    role="presentation"                                                                                   
+                    autocomplete="off"                            
+                    minlength="3"
+                    maxlength="60"
+                    required
+                    email    
+                    pattern = "^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$"                             
+                    #correo = "ngModel"
+                    [(ngModel)] = "usuario.email" 
+                    (input)="onTextChangeEmail($event)"   
+                    [class.is-valid]="correo.valid"
+                    [ngClass]="{'is-invalid': correo.invalid && (correo.dirty || correo.touched), 
+                            'is-valid': correo.valid, '' : correo.untouched}"
+                    style="width: 300px;"                      
+                    [ngStyle]="{'background-color': correo.valid ? '#E8F0FE' : '#FFFFFF'}">                            
+           
+                    <div class="alert alert-danger" style="width: 100%;" *ngIf= "correo.invalid && (correo.dirty || correo.touched)">
+                      <div *ngIf = "correo.errors?.['required']">
+                        Digite el `email` por favor!!!
+                      </div>
+                      <div *ngIf = "correo.errors?.['minlength']">
+                        El `email` debe contener como minimo 3 caracteres
+                      </div>
+                      <div *ngIf = "correo.errors?.['maxlength']">
+                        El `email` debe de contener como maximo 60 caracteres
+                      </div>
+                      <div *ngIf = "correo.errors?.['pattern']">
+                        Email invalido!!!
+                      </div>
+                      <div *ngIf = "correo.errors?.['isTaken']">
+                        El `email` esta tomado, escribe otro!!!
+                      </div>
+                    </div>
+
+        </div> <!-- form-group// -->     
+
+      
+          <!--<div class="navbar-nav mr-auto" *ngIf="role=='ROLE_ADMIN' ">  Role Input Text -->
+
+            <label for="role" class="control-label required form-label text-label mt-2" style="font-weight:bold;">Role</label>
+            <div class="form-group input-group" >
+                <div class="input-group-prepend" >
+                    <span class="input-group-text" > <i class="fa fa-gear"></i> </span>
+                </div>                                                                                                  
+                          <!-- <l-select2 id="role" name="role" style=" height: 50px; "
+                            class="is-valid"                                                                                                                                                                                                                                                                                                                                                                        
+                            #papel = "ngModel"
+                            [(ngModel)] = "usuario.roles"
+                            (change)="selectUserChange($event)"
+                            [options]="{ placeholder: 'Seleccione un Role', minimumResultsForSearch: -1 }"    
+                            [class.is-valid]="papel.valid"
+                            [ngClass]="{'is-invalid': papel.invalid && (papel.dirty || papel.touched), 
+                                        'is-valid': papel.valid, '' : papel.untouched}"                                            
+                            [ngStyle]="{'background-color': papel.valid ? '#E8F0FE' : '#FFFFFF'}"> 
+                          
+                            <option value="" disabled="true" [selected]="true">Seleccione un Role</option>
+                            <option value="ROLE_USER">Usuario<span class="glyphicon glyphicon-ok check-mark"></span></option>
+                            <option value="ROLE_ADMIN">Administrador</option>
+
+                        </l-select2>                            -->
+
+                        <select id="role" name="role" style=" height: 50px; width:300px" 
+                            class="form-control"    
+                            #rol = "ngModel"  
+                            [(ngModel)] = "options"                                                         
+                            (change)="selectUserChange($event)" 
+                            [class.is-valid]="rol.valid"
+                            [ngClass]="{'is-invalid': rol.invalid && (rol.dirty || rol.touched), 
+                            'is-valid': rol.valid, '' : rol.untouched}"                                                                                                                                                   
+                            [ngStyle]="{'background-color': rol.valid ? '#E8F0FE' : '#FFFFFF'}"> 
+                          
+                            <!-- <option selected="true" value="">Seleccione un Role</option> -->
+                            <!-- <option *ngFor="let rol of roleTypes" value="{{rol.value}}" >{{rol.name}}</option> -->
+
+                            <option value="Seleccione un Role" disabled="true" [selected]="true">Seleccione un Role</option>
+                            <option value="ROLE_USER">Usuario</option>
+                            <option value="ROLE_ADMIN">Administrador</option>
+                        </select>                           
+
+
+              
+                        <!-- <div class="alert alert-danger" style="width: 100%;" *ngIf= "papel.invalid && (papel.dirty || papel.touched)">
+                          <div *ngIf = "papel.errors?.['required']">
+                            Seleccione el `role` por favor!!!
+                          </div>                              
+                        </div> -->
+
+            </div> <!-- form-group// -->
+          <!--</div>  Role Input Text -->
+
+        <!-- <label for="passwd" class="control-label required form-label text-label mt-2" style="font-weight:bold;">Crear Contraseña</label>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock icons-login"></i> </span>
+            </div>
+            <input 
+              id="passwd"
+              name="passwd"
+              class="form-control form-input" 
+              placeholder="Crear contraseña" 
+              type="password"
+              role="presentation"                                                                                   
+              autocomplete="off"   
+              minlength="8"
+              maxlength="60"
+              required 
+              password               
+              pattern="^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$"
+              #contrasena = "ngModel"
+              [(ngModel)] = "usuario.password" 
+              [class.is-valid]="contrasena.valid"
+              [ngClass]="{'is-invalid': contrasena.invalid && (contrasena.dirty || contrasena.touched), 
+                            'is-valid': contrasena.valid, '' : contrasena.untouched}"
+              style="width: 300px;"                      
+              [ngStyle]="{'background-color': contrasena.valid ? '#E8F0FE' : '#FFFFFF'}">
+
+            <div class="alert alert-danger" style="width: 100%;" *ngIf= "contrasena.invalid && (contrasena.dirty || contrasena.touched)">
+              <div *ngIf = "contrasena.errors?.['required']">
+                Digite la `contraseña` por favor!!!
+              </div>
+              <div *ngIf = "contrasena.errors?.['minlength']">
+                -La `contraseña` debe contener como minimo 8 caracteres
+              </div>
+              <div *ngIf = "contrasena.errors?.['maxlength']">
+                -La `contraseña` debe de contener como maximo 60 caracteres
+              </div>
+              <div *ngIf = "contrasena.errors?.['pattern']">
+                -La contraseña debe de contener al menos un numero, una letra mayuscula y 
+                una letra minuscula <br />-La contraseña no puede contener espacios
+              </div>
+            </div>                    
+          </div> 
+
+        <label for="newPasswd" class="control-label required form-label text-label mt-2" style="font-weight:bold;">Confirmar contraseña</label>  
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock icons-login"></i> </span>
+            </div>
+            <input 
+              id="newPasswd"
+              name="newPasswd"
+              class="form-control form-input" 
+              placeholder="Confirmar contraseña"                       
+              type="password"
+              role="presentation"                                                                                   
+              autocomplete="off"   
+              required 
+              password  
+              #nuevaContrasena = "ngModel"
+              [(ngModel)] = "newPasswd" 
+              [class.is-valid]="nuevaContrasena.valid"
+              [ngClass]="{'is-invalid': nuevaContrasena.invalid && (nuevaContrasena.dirty || nuevaContrasena.touched), 
+                            'is-valid': nuevaContrasena.valid, '' : nuevaContrasena.untouched}"
+              style="width: 300px;"
+              (input)="onTextChange($event)"                      
+              [ngStyle]="{'background-color': nuevaContrasena.valid ? '#E8F0FE' : '#FFFFFF'}">
+
+              <div class="alert alert-danger" style="width: 100%;" *ngIf= "nuevaContrasena.invalid && (nuevaContrasena.dirty || nuevaContrasena.touched)">
+                <div *ngIf = "nuevaContrasena.errors?.['required']">
+                  Digite la `contraseña` por favor!!!
+                </div>
+                <div *ngIf = "nuevaContrasena.errors?.['minlength']">
+                  -La `contraseña` debe contener como minimo 8 caracteres
+                </div>
+                <div *ngIf = "nuevaContrasena.errors?.['maxlength']">
+                  -La `contraseña` debe de contener como maximo 30 caracteres
+                </div>
+                <div *ngIf = "nuevaContrasena.errors?.['confirmedValidator']">
+                  -La `contraseña` y la `contraseña confirmada` debe de coincidir
+                </div>
+                <div *ngIf = "nuevaContrasena.errors?.['pattern']">
+                  -La contraseña debe de contener al menos un numero, una letra mayuscula y 
+                  una letra minuscula <br />-La contraseña no puede contener espacios
+                </div>
+              </div>
+        </div>  -->
+        <!-- form-group// -->   
+      </form>
+
+        <div class="form-group input-group">
+          <div class="col text-center">        
+                  <button name="Actualizar" [disabled]= "!updateForm.form.valid" class="btn btn-primary btn-length3 mt-3 display: flex; justify-content: center;" (click)="onSubmit()" >Actualizar</button>            
+          </div>
+          <div class="col text-center">        
+              <button name="Cancelar"  class="btn btn-primary btn-length3 mt-3 display: flex; justify-content: center;" (click)="check()" >Cancelar</button>            
+          </div>
+        </div>
+        
+        <div class="form-group text-center" style="background-color:green; display: float; position: right;">
+            <!-- <button type="button" class="btn btn-primary btn-block btn-length3  mt-2" [disabled]= "!loginForm.form.valid" (click)="onSubmit()"> Crear Cuenta  </button> -->
+            
+        </div> <!-- form-group// -->      
+
+    </article>
+    </div> <!-- card.// -->
+    
+    </div> 
+    <!--container end.//-->
+
+                                                
+<!-- </div>    -->
+<!-- </div> -->
+<!-- </div> -->
+
+<div id="spaceJunk" style="height: 250px;"></div>
